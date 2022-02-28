@@ -8,7 +8,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	margin: 0;
 }
 .main-container.elements{
@@ -22,6 +22,7 @@ body {
 	overflow: hidden;
 	width: 400px;
 	max-width: 100%;
+	margin-top: 120px;
 }
 .results{
 	text-align: center;
@@ -102,3 +103,37 @@ input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
 .form-control.error small {
 	visibility: visible;
 }
+.result-container.elements{
+	padding-left: 30px;
+}
+
+.result-container {
+	/* background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
+	margin-top: 100px;
+	overflow: hidden;
+	width: 500px;
+	max-width: 200%;
+}
+.result-control {
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+	position: relative;
+}
+.result-header{
+	text-align: center;
+	color: #000000;
+	font-size: 30px;
+	margin-bottom: 40px;
+
+}
+.result-control label {
+	text-align: center;
+	font-size:25px;
+	color: rgb(13, 0, 70);
+	display: inline-block;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+

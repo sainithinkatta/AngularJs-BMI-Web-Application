@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>
         BMI calcy
@@ -13,7 +12,6 @@
     <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 </head>
-
 <body>
     <div ng-app="bmiapp">
         <div ng-controller="bmicontroller">
@@ -56,19 +54,27 @@
                         </div>
                     </div>
                     <div>
-                        <input class="submit-button-styling" type="submit" value="send"></input>
+                        <input class="submit-button-styling" type="submit" value="Check Your BMI"></input>
                     </div>
                 </form>
                 <div id="secondDivision">
                     <canvas id="myChart" style="width:70%;max-width:120px"></canvas>
                 </div>
             </div>
-            <div ng-repeat="data in addDetails">
-                <p>{{data.username}}</p>
-                <p>{{data.useremail}}</p>
-                <p>{{data.userheight}}</p>
-                <p>{{data.userweight}}</p>
-                <!-- <p></p> -->
+            <div id="resultDivision" class="result-container" ng-show="showresultDivision">
+                <div class="result-header">BMI - RESULTS</div>
+                <div class="result-control">
+                    <div>Name:- <label id="givenName"></label></div>
+                    <br>
+                    <div>Height (in cm's):- <label id="givenHeight"></label></div>
+                    <br>
+                    <div>Weight (in kg's):- <label id="givenWeight"></label></div>
+                    <br>
+                    <div>BMI:- <label id="bmiResult"></label></div>
+                    <br>
+                    <div>FeedBack:- <label id="result"></label></div>
+                    <canvas id="resChart" style="width:100%;max-width:600px"></canvas>
+                </div>
             </div>
         </div>
     </div>
