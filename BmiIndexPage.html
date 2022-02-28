@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        BMI calcy
+    </title>
+    <link rel="stylesheet" href="app/IndexPage.css">
+    <script src="app/angular.js"></script>
+    <script src="app/angular-route.min.js"></script>
+    <script src="app/bmi.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="bmiapp">
+        <div ng-controller="bmicontroller">
+            <div class="main-container" ng-hide="hideform">
+                <div class="title-header">
+                    <h1>BMI CALCULATOR</h1>
+                </div>
+                <!-- when we add novalidate submit is not working -->
+                <form id="form" name="bmiform" class="form-control" ng-submit="formsubmit()">
+                    <div>
+                        <label for="username">Name</label>
+                        <input type="text" id="username" name="name" placeholder="Enter your name" ng-model="bmi.name"
+                            minlength="3" required="true" autocomplete="on" />
+                        <div ng-show="bmiform.name.$touched && bmiform.name.$invalid">
+                            <span class="name-error">Enter a valid name</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="useremail">Email</label>
+                        <input type="email" id="useremail" name="email" placeholder="Enter your email"
+                            ng-model="bmi.email" required="true" autocomplete="on" />
+                        <div ng-show="bmiform.email.$touched && bmiform.email.$invalid">
+                            <span class="email-error">Enter a valid email</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="height">Height </label>
+                        <input type="number" name="height" ng-model="bmi.height"
+                            placeholder="Enter your height (in cm's)" id="userheight" required />
+                        <div ng-show="bmiform.height.$touched && bmiform.height.$invalid">
+                            <span class="email-error">Enter a valid email</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="weight">Weight </label>
+                        <input type="number" name="weight" ng-model="bmi.weight"
+                            placeholder="Enter your weight (in kg's)" id="userweight" required />
+                        <div ng-show="bmiform.weight.$touched && bmiform.weight.$invalid">
+                            <span class="email-error">Enter a valid email</span>
+                        </div>
+                    </div>
+                    <div>
+                        <input class="submit-button-styling" type="submit" value="send"></input>
+                    </div>
+                </form>
+                <div id="secondDivision">
+                    <canvas id="myChart" style="width:70%;max-width:120px"></canvas>
+                </div>
+            </div>
+            <div ng-repeat="data in addDetails">
+                <p>{{data.username}}</p>
+                <p>{{data.useremail}}</p>
+                <p>{{data.userheight}}</p>
+                <p>{{data.userweight}}</p>
+                <!-- <p></p> -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
