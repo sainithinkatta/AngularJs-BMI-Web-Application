@@ -1,0 +1,91 @@
+/* form page where the user find to fill the form, that has a box and in that form elements are present*/
+body {
+	background-color: #44c1ca;
+	font-family:Arial, Helvetica, sans-serif;
+	margin: 0;
+}
+.form-container {
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	width: 400px;
+	max-width: 100%;
+	margin: auto;
+  	margin-top: 10%;
+}
+/* css for validation of input fields */
+input.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+/* entire form division that contains all required forms elements  */
+.bmi-form {
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+	position: relative;
+	padding: 30px 40px;	
+}
+/* childs elements of bmi-form parent */
+.bmi-form h1 {
+	color:  #20c5d1;
+	background-color: #f7f7f7;
+	text-align: center;
+	padding: 10px;
+}
+/* accessing the elements through child class .form_fields of bmi-form class */
+.form_fields label {
+	display: inline-block;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-bottom: 5px;
+}
+.form_fields input {
+	border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+.form_fields span {
+	color:red;
+    display: block;
+	margin-bottom: 5px;
+}
+.form-submit-btn {
+    cursor: pointer;
+	background-color: #20c5d1;
+	border: 2px solid #000000;
+	border-radius: 4px;
+	color: #fff;
+	display: block;
+	padding: 10px;
+	margin-top: 20px;
+	width: 100%;
+}
+/* result division of another container that displays results */
+.result-container  {
+	background-color: #f0f0f0;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(255, 0, 0, 0.3);
+	overflow: hidden;
+	width: 500px;
+	max-width: 200%;
+	margin: auto;
+	margin-top: 10%;
+}
+.result_fields h2{
+	color:  #20c5d1;
+	background-color: #f7f7f7;
+	text-align: center;
+	padding: 10px;
+}
+.result_fields div{
+	padding-bottom: 10px;
+	padding-left: 20px;
+}
+.results{
+	text-align: center;
+}

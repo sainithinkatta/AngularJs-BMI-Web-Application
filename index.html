@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        BMI calcy
+    </title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="angularfiles/angular.js"></script>
+    <script src="angularfiles/angular-route.min.js"></script>
+    <script src="controller/bmi-controller.js"></script>
+</head>
+<body>
+    <div 
+        ng-app="bmiCalculator"
+        ng-controller="bmiController"
+    >
+        <div 
+            class="form-container" 
+            ng-hide="bmiResultUi"
+        >
+            <form 
+                id="form" 
+                name="bmiFormData" 
+                class="bmi-form form_fields" 
+                ng-submit="calculateBmi()">
+                <h1>BMI CALCULATOR</h1>
+                <div>
+                    <label 
+                        for="username">
+                        Name
+                    </label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="name" 
+                        placeholder="Enter your name" 
+                        ng-model="bmi.name"
+                        ng-minlength="3" 
+                        ng-required="true" 
+                        autocomplete="on" />
+                    <span 
+                        ng-show="bmiFormData.name.$touched && bmiFormData.name.$invalid">
+                        Enter a valid name of minimum length of 3 letters
+                    </span>
+                </div>
+                <div>
+                    <label 
+                        for="useremail">
+                        Email
+                    </label>
+                    <input 
+                        type="email" 
+                        id="useremail" 
+                        name="email" 
+                        placeholder="Enter your email" 
+                        ng-model="bmi.email"
+                        ng-required="true" 
+                        autocomplete="on" />
+                    <span 
+                        ng-show="bmiFormData.email.$touched && bmiFormData.email.$invalid">
+                        Enter a valid email</span>
+                </div>
+                <div>
+                    <label 
+                        for="height">
+                        Height 
+                    </label>
+                    <input 
+                        type="number" 
+                        name="height" 
+                        ng-model="bmi.height" 
+                        placeholder="Enter your height (in cm's)"
+                        id="userheight" 
+                        ng-required="true"
+                    />
+                    <span 
+                        ng-show="bmiFormData.height.$touched && bmiFormData.height.$invalid">
+                        Enter your Height
+                    </span>
+                </div>
+                <div>
+                    <label 
+                        for="weight">
+                        Weight 
+                    </label>
+                    <input 
+                        type="number" 
+                        name="weight" 
+                        ng-model="bmi.weight" 
+                        placeholder="Enter your weight (in kg's)"
+                        id="userweight" 
+                        ng-required="true" 
+                    />
+                    <span 
+                        ng-show="bmiFormData.weight.$touched && bmiFormData.weight.$invalid">
+                        Enter your Weight
+                    </span>
+                </div>
+                <input 
+                    class="form-submit-btn" 
+                    type="submit" 
+                    value="Check Your BMI"
+                >
+            </form>
+        </div>
+        <div    
+            class="result-container result_fields" 
+            ng-show="bmiResultUi"
+        >
+            <h2>
+                BMI - RESULTS
+            </h2>
+            <div>
+                Name:- {{ bmi.name }} 
+            </div>
+            <div>
+                Height (in cm's):- {{ bmi.height }} 
+            </div>
+            <div>
+                Weight (in kg's):- {{ bmi.weight }} 
+            </div>
+            <div>
+                BMI:- {{ bmiResult }}
+            </div>
+            <div>
+                FeedBack:- {{ bmiResultFeedback }}
+            </div>
+            <canvas 
+                id="resultBarGraph" 
+                style="width:100%;max-width:600px">
+            </canvas>
+        </div>
+</body>
+</html>
